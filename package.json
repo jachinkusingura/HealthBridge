@@ -4,12 +4,12 @@
   "description": "Healthcare clinic booking platform - Monorepo",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm --filter healthbridge-client dev\" \"pnpm --filter healthbridge-server dev\"",
-    "client": "pnpm --filter healthbridge-client dev",
-    "server": "pnpm --filter healthbridge-server dev",
-    "build": "pnpm --filter healthbridge-client build && pnpm --filter healthbridge-server build",
-    "db:setup": "pnpm --filter healthbridge-server db:setup",
-    "install-all": "pnpm install"
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client && npm run build --prefix server",
+    "db:setup": "npm run db:setup --prefix server",
+    "install-all": "npm install && npm install --prefix client && npm install --prefix server"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
